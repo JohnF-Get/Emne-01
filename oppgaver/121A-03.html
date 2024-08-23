@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>121A-03</title>
+    <link rel="stylesheet" href="../styles/groundwork.css" />
+    <style>
+      body {
+        padding: 2em;
+      }
+      button {
+        margin-bottom: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="inputX">X position:</label>
+    <input id="inputX" type="number" required />
+    <label for="inputY">Y position:</label>
+    <input id="inputY" type="number" required />
+    <button id="addCircleButton">Send</button>
+    <br />
+    <svg
+      id="mySvg"
+      width="800"
+      height="600"
+      style="background-color: lightgray"
+    ></svg>
+    <script>
+      function addCircle(x, y) {
+        document.getElementById("mySvg").innerHTML = /*HTML*/ `
+          <circle cx="${x}" cy="${y}" r="40" stroke="green" stroke-width="4" fill="yellow" />            
+      `;
+      }
+
+      function addCircleFromInput() {
+        let x = document.getElementById("inputX").value;
+        let y = document.getElementById("inputY").value;
+        addCircle(x, y);
+      }
+
+      document
+        .getElementById("addCircleButton")
+        .addEventListener("click", addCircleFromInput);
+    </script>
+  </body>
+</html>

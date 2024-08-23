@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Game</title>
+    <style>
+      /* Stiler for spillebrettet */
+      #board {
+        display: grid;
+        grid-template-columns: repeat(3, 200px);
+        grid-template-rows: repeat(2, 200px);
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      /* Stiler for hvert kort på brettet */
+      #board > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: darkgray url(images/backface.png);
+        width: 200px;
+        height: 200px;
+        font-size: 24px;
+        cursor: pointer;
+        border: 1px solid #333;
+      }
+
+      /* Stiler for start-knappen */
+      #restartButton {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+    <!-- Inkluderer confetti.js-biblioteket for å kunne bruke konfettieffekten -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- Spillebrettet med seks kort -->
+      <div id="board">
+        <!-- Hvert kort er en tom div som vil fylles med et bilde når det klikkes på -->
+        <div onclick="revealCard(this, 0)"></div>
+        <div onclick="revealCard(this, 1)"></div>
+        <div onclick="revealCard(this, 2)"></div>
+        <div onclick="revealCard(this, 3)"></div>
+        <div onclick="revealCard(this, 4)"></div>
+        <div onclick="revealCard(this, 5)"></div>
+      </div>
+      <!-- Knapp for å starte spillet på nytt -->
+      <button id="restartButton" onclick="restartGame()">Start på nytt</button>
+    </div>
+
+    <script>
+      // Bilder for hvert kortpar (to av hvert bilde)
+      let images = [
+        "images/logo--html.png",
+        "images/logo--css.png",
+        "images/logo--js.png",
+        "images/logo--html.png",
+        "images/logo--css.png",
+        "images/logo--js.png",
+      ];
+
+      // Shuffler bildene ved å stokke rekkefølgen tilfeldig
+      // Dette sikrer at bildene vises i en ny rekkefølge hver gang spillet startes på nytt
+      images.sort(() => 0.5 - Math.random());
+
+      // Variabler for å holde styr på spilltilstanden
+      let firstCard = null; // Holder referansen til det første kortet som blir avslørt
+      let secondCard = null; // Holder referansen til det andre kortet som blir avslørt
+      let lockBoard = false; // Brukes for å låse brettet midlertidig mens man sjekker om det er en match
+      let matchesFound = 0; // Teller antall par som er funnet i spillet
+
+      // Funksjon som blir kalt når et kort blir klikket på
+      // 'div' refererer til det klikkede kortet, 'index' refererer til posisjonen i 'images'-arrayen
+      function revealCard(div, index) {
+        // Hvis brettet er låst (mens vi sjekker et match), gjør ingenting
+        if (lockBoard) return;
+
+        // Hvis spilleren klikker på det samme kortet igjen, gjør ingenting
+        if (div === firstCard) return;
+
+        // Legger til klassen 'revealed' for å vise bildet, og setter inn bildet basert på indeksen
+        div.classList.add("revealed");
+        div.innerHTML = `<img src="${images[index]}" alt="Memory Card"/>`;
+
+        // Hvis dette er det første kortet som blir avslørt
+        if (!firstCard) {
+          firstCard = div; // Lagre dette kortet som det første kortet som er avslørt
+          return; // Avslutt funksjonen for å vente på at spilleren klikker på det andre kortet
+        }
+
+        // Hvis dette er det andre kortet som blir avslørt
+        secondCard = div; // Lagre dette kortet som det andre kortet som er avslørt
+        checkForMatch(); // Sjekk om de to kortene matcher
+      }
+
+      // Funksjon som sjekker om de to kortene som er avslørt matcher
+      function checkForMatch() {
+        // Sjekker om HTML-innholdet i de to kortene er likt, som betyr at bildene matcher
+        const isMatch = firstCard.innerHTML === secondCard.innerHTML;
+
+        if (isMatch) {
+          // Hvis kortene matcher, øker vi antallet funnede par
+          matchesFound++;
+          resetBoard(); // Tilbakestill brettet slik at spilleren kan fortsette å spille
+
+          // Hvis alle parene er funnet (alle tre parene er matchet)
+          if (matchesFound === images.length / 2) {
+            // Utløs konfettieffekten for å gratulere spilleren
+            confetti({
+              particleCount: 700, // Antall konfettipartikler som vil vises
+              spread: 1000, // Hvor mye partiklene sprer seg på skjermen
+              origin: { y: 0.3 } // Hvor på skjermen konfettien skal starte fra
+            });
+          }
+        } else {
+          // Hvis kortene ikke matcher, lås brettet for å forhindre nye klikk
+          lockBoard = true;
+
+          // Setter en timeout på 1 sekund før kortene blir skjult igjen
+          setTimeout(() => {
+            // Fjern klassen 'revealed' fra begge kortene slik at de skjules igjen
+            firstCard.classList.remove("revealed");
+            secondCard.classList.remove("revealed");
+            firstCard.innerHTML = ""; // Tømmer HTML-innholdet i første kort (skjuler bildet)
+            secondCard.innerHTML = ""; // Tømmer HTML-innholdet i andre kort (skjuler bildet)
+            resetBoard(); // Tilbakestiller brettet etter at kortene er skjult
+          }, 1000); // 1000 millisekunder = 1 sekund
+        }
+      }
+
+      // Funksjon som tilbakestiller brettet slik at spilleren kan fortsette å spille
+      function resetBoard() {
+        // Nullstiller variablene firstCard, secondCard, og lockBoard for å starte på nytt
+        [firstCard, secondCard, lockBoard] = [null, null, false];
+      }
+
+      // Funksjon for å starte spillet på nytt
+      function restartGame() {
+        // Shuffler bildene på nytt for å gi en ny, tilfeldig rekkefølge
+        images.sort(() => 0.5 - Math.random());
+
+        // Finner alle kortene på brettet (div-elementene inni #board)
+        const cards = document.querySelectorAll("#board > div");
+
+        // Går gjennom hvert kort og tilbakestiller det ved å fjerne 'revealed'-klassen og tømme innholdet
+        cards.forEach((card) => {
+          card.classList.remove("revealed"); // Fjerner klassen 'revealed' for å skjule bildet
+          card.innerHTML = ""; // Fjerner eventuelt innhold (bildet) i kortet
+        });
+
+        // Tilbakestiller spillvariablene slik at spilleren kan begynne på nytt
+        resetBoard();
+        matchesFound = 0; // Tilbakestiller antall funnede par
+      }
+    </script>
+  </body>
+</html>
