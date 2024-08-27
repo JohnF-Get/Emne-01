@@ -11,3 +11,5 @@ Dette repositoriet er et levende arkiv av mine oppgaver knyttet til kurset. Det 
 Jeg setter pris på tilbakemeldinger og innspill, men vær klar over at ikke alt innhold her nødvendigvis er endelig eller fullt dokumentert.
 
 Takk for at du viser interesse for kursoppgavene mine!
+
+**[Klikk her for å se webversjonen av repositoriet](https://johnf-get.github.io/Emne-01/).**
