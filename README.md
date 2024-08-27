@@ -12,4 +12,4 @@ Jeg setter pris på tilbakemeldinger og innspill, men vær klar over at ikke alt
 
 Takk for at du viser interesse for kursoppgavene mine!
 
-**[Klikk her for å se webversjonen av repositoriet](https://johnf-get.github.io/Emne-01/).**
+**[Klikk her for å se webarkivet av repositoriet](https://johnf-get.github.io/Emne-01/).**
