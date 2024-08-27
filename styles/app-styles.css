@@ -1,0 +1,22 @@
+/**
+ * ============================================================================
+ * File: app-styles.css
+ * Description: Stylesheet for specific applications and files within the
+ *              project. This file contains custom styles tailored to
+ *              individual apps and components, organized by their
+ *              respective directories.
+ * Author: JohnF
+ * Created: 2024-08-25 12:19:00
+ * Last Updated: 2024-08-25 12:19:00 - Initial creation
+ * Version: 1.0
+ * 
+ * Usage Notes:
+ * - This file is for custom styles unique to specific apps or files
+ *   within the project. It should not be used for global styles.
+ * - Ensure styles are grouped and clearly labeled by app/component for
+ *   ease of navigation and maintenance.
+ * - For styles meant to be reused across multiple apps, consider placing
+ *   them in groundwork.css or another shared stylesheet.
+ * 
+ * ============================================================================
+ */

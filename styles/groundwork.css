@@ -1,3 +1,27 @@
+/**
+ * ============================================================================
+ * File: groundwork.css
+ * Description: Centralized stylesheet for global and reusable styles across
+ *              the project. This file contains foundational styles that are
+ *              shared among various apps and components for consistency.
+ * Author: JohnF
+ * Created: 2024-08-23 17:11
+ * Last Updated: 2024-08-25 12:28 - Minor adjustments and refinements
+ * Version: 1.0
+ * 
+ * Usage Notes:
+ * - This file is for global styles that apply across multiple apps and
+ *   components. Use it for styles that should be consistent throughout
+ *   the project.
+ * - For styles specific to individual apps or components, use app-styles.css
+ *   or other relevant CSS files.
+ * - Organize styles logically, such as by base elements, typography,
+ *   layout, etc.
+ * 
+ * ============================================================================
+ */
+
+
 /******************************************************************************
  ROOT
 ******************************************************************************/
