@@ -3,7 +3,7 @@
 *.bak
 
 # Index Page Generator
-ipg.php
+/ipg*
 
 # Visual Studio Code specific
 .vscode/*

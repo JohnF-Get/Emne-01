@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Lær om de viktigste enhetene i CSS som px, rem, %, og hvordan de brukes i webdesign." />
+  <title>De viktigste enhetene i CSS</title>
+  <link rel="stylesheet" href="../../styles/app-styles.css" />
+</head>
+
+<body>
+  <div class="card-container">
+    <h1>De viktigste enhetene i CSS</h1>
+    <p> I denne tutorialen vil du lære om de mest brukte enhetene i CSS, og hvordan du bruker dem for å designe
+      responsive og skalerbare nettsider. </p>
+    <h2>px - Piksler</h2>
+    <p>
+      <code>px</code> står for piksler og brukes til å angi faste størrelser på elementer. En piksel er en enhet basert
+      på skjermoppløsning, og gir presis kontroll over størrelsen på elementer.
+    </p>
+    <pre><code>h1 {
+    font-size: 24px;
+}</code></pre>
+    <h2>rem - Root em</h2>
+    <p>
+      <code>rem</code> refererer til fontstørrelsen på <code>&lt;html&gt;</code>-elementet. Det gjør det enkelt å lage
+      skalerbare design, siden <code>rem</code> er relatert til rotnivå-fontstørrelsen.
+    </p>
+    <pre><code>p {
+    font-size: 1.5rem; /* 15px hvis html { font-size: 10px; } */
+}</code></pre>
+    <h2>% - Prosent</h2>
+    <p>
+      <code>%</code> brukes for å angi størrelser som en prosentandel av det overordnede elementet. Dette er nyttig for
+      responsiv design hvor størrelsen på elementene endres med vinduets størrelse.
+    </p>
+    <pre><code>div {
+    width: 50%;
+}</code></pre>
+    <h2>em - Relative enheter</h2>
+    <p>
+      <code>em</code> refererer til fontstørrelsen på det overordnede elementet. Det er lik <code>rem</code>, men
+      beregnes relativt til det elementet hvor det brukes.
+    </p>
+    <pre><code>button {
+    padding: 0.5em 1em;
+}</code></pre>
+    <h2>vh/vw - Viewport Height/Width</h2>
+    <p>
+      <code>vh</code> og <code>vw</code> er relative til henholdsvis høyden og bredden på visningsområdet. 1vh er 1% av
+      vinduets høyde, mens 1vw er 1% av vinduets bredde.
+    </p>
+    <pre><code>.hero {
+    height: 100vh;
+    width: 100vw;
+}</code></pre>
+  </div>
+</body>
+
+</html>

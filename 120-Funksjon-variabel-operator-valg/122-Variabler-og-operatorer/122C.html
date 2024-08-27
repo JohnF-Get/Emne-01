@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+      <strong>Oppgave 122 C</strong> &nbsp;
+      <p>
+        Lag en enkel nettside med en kort tekst i en div. Lag knapper for å
+        gjøre denne teksten større og mindre, altså altså større og mindre font
+        size. Lag en variabel <code>currentFontSize</code> som kan økes eller
+        reduseres med knappene. Bruk denne variabelen til å endre font størrelse
+        enten inline eller via <code>.style</code>:
+      </p>
+      <pre><code class="language-js"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">'myId'</span>).<span class="hljs-property">innerHTML</span> = <span class="hljs-string">`&lt;div style="font-size: <span class="hljs-subst">${currentFontSize}</span>pt;"&gt;`</span>;
+    </code></pre>
+      <p>eller endre style direkte fra JavaScript:</p>
+      <pre><code class="language-js"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">'myId'</span>).<span class="hljs-property">style</span>.<span class="hljs-property">fontSize</span> = <span class="hljs-string">`<span class="hljs-subst">${currentFontSize}</span>pt`</span>;
+    </code></pre>
+      <p>Bruk andre enheter om du vil.</p>
+
+  </body>
+</html>

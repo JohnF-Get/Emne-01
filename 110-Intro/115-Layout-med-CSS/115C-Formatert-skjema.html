@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Et tilpasset skjema med to kolonner for etiketter og kontroller.">
+  <title>Mitt skjema</title>
+  <link rel="stylesheet" href="../../styles/app-styles.css">
+  <style>
+    #app {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 10px;
+      align-items: center;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    #app h1 {
+      grid-column: span 2;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    #app label {
+      text-align: right;
+      padding-right: 10px;
+    }
+
+    #app input[type="text"],
+    #app input[type="range"],
+    #app input[type="number"] {
+      width: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    .radio-group {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .radio-group label {
+      margin-right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card-container">
+    <div id="app">
+      <h1>Mitt skjema</h1>
+      <label for="first-name">Fornavn</label>
+      <input type="text" id="first-name">
+      <label for="last-name">Etternavn</label>
+      <input type="text" id="last-name">
+      <label for="range">En til hundre</label>
+      <input type="range" id="range">
+      <label for="number">Skriv inn et tall</label>
+      <input type="number" id="number">
+      <label for="fav-language">Favorittspråk:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="fav_language" value="html"> HTML</label>
+        <label><input type="radio" name="fav_language" value="css"> CSS</label>
+        <label><input type="radio" name="fav_language" value="javascript"> JavaScript</label>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

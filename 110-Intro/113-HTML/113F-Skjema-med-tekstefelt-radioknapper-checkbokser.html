@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Utforsk dine indre superkrefter! Fyll ut dette skjemaet for å finne ut hvilke superkrefter som passer best til deg." />
+  <title>Oppdag dine superkrefter</title>
+  <link rel="stylesheet" href="../../styles/app-styles.css" />
+</head>
+
+<body>
+  <div class="card-container">
+    <div class="form">
+      <h1 class="form__title">Oppdag dine superkrefter</h1>
+      <form>
+        <div class="form__field">
+          <label class="form__label" for="name">Hva er ditt superhelt-alias?</label>
+          <input class="form__input" type="text" id="name" name="name" placeholder="Skriv inn ditt superhelt-navn" />
+        </div>
+        <div class="form__field">
+          <label class="form__label">Hva er din ultimate superkraft?</label>
+          <input type="radio" id="fly" name="superkraft" value="fly" />
+          <label for="fly">Fly</label><br />
+          <input type="radio" id="styrke" name="superkraft" value="styrke" />
+          <label for="styrke">Overmenneskelig styrke</label><br />
+          <input type="radio" id="tankelesing" name="superkraft" value="tankelesing" />
+          <label for="tankelesing">Tankelesing</label><br />
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="superutstyr">Hvilket superutstyr trenger du? (Velg en eller flere)</label>
+          <input type="checkbox" id="skjold" name="superutstyr" value="skjold" />
+          <label for="skjold">Ugjennomtrengelig skjold</label><br />
+          <input type="checkbox" id="drakt" name="superutstyr" value="drakt" />
+          <label for="drakt">Usynlighetsdrakt</label><br />
+          <input type="checkbox" id="laser" name="superutstyr" value="laser" />
+          <label for="laser">Laserkanon</label><br />
+        </div>
+        <div class="form__buttons">
+          <button type="submit" class="form__button"> AVDEKK DINE KREFTER </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

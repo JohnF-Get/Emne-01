@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Lær hvordan du endrer skrifttype og skriftstørrelse ved hjelp av CSS. Enkle eksempler og kodebiter for å komme i gang med typografi i CSS." />
+  <title>Endre Skrifttype og Skriftstørrelse med CSS</title>
+  <link rel="stylesheet" href="../../styles/app-styles.css" />
+</head>
+
+<body>
+  <div class="card-container">
+    <h1>Endre skrifttype og skriftstørrelse med CSS</h1>
+    <p> I denne tutorialen vil du lære hvordan du endrer skrifttype og skriftstørrelse ved hjelp av CSS. Typografi er en
+      viktig del av webdesign og kan enkelt justeres med noen få linjer med kode. </p>
+    <h2>1. Endre skrifttype</h2>
+    <p> Du kan endre skrifttypen for en HTML-side ved å bruke CSS-egenskapen <code>font-family</code>. Her er et
+      eksempel: </p>
+    <pre><code>body {
+    font-family: 'Montserrat', sans-serif;
+}</code></pre>
+    <p> I dette eksemplet vil hele siden bruke Montserrat som skrifttype. Hvis Montserrat ikke er tilgjengelig, vil den
+      bruke en generisk sans-serif-skrifttype. </p>
+    <h2>2. Endre Skriftstørrelse</h2>
+    <p> For å endre skriftstørrelsen, bruker du CSS-egenskapen <code>font-size</code>. Her er et eksempel: </p>
+    <pre><code>h1 {
+    font-size: 3rem;
+}</code></pre>
+    <p> Dette eksemplet setter skriftstørrelsen på alle <code>&lt;h1&gt;</code>-elementer til 3rem, som tilsvarer 48px
+      hvis grunnstørrelsen er 16px. </p>
+    <h2>Bruke en relativ enhet for skriftstørrelse</h2>
+    <p> En annen metode jeg ofte foretrekker, er å sette <code>font-size</code> på <code>html</code>-elementet til
+      62.5%. Dette gjør det enkelt å regne om <code>rem</code> til pikselverdier. 1rem blir 10px, som vist her: </p>
+    <pre><code>html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-size: 1.5rem; /* 15px */
+}</code></pre>
+    <p> Dette gjør det enklere å bruke rem-enheter for å skalere skriftstørrelser, fordi det blir lettere å regne om
+      verdiene direkte til piksler. </p>
+    <h2>3. Kombinere skrifttype og skriftstørrelse</h2>
+    <p>Du kan også kombinere begge egenskapene i samme regel:</p>
+    <pre><code>p {
+    font-family: 'Literata', serif;
+    font-size: 1.5rem;
+}</code></pre>
+    <p> Dette setter teksten i avsnittene til Literata med en skriftstørrelse på 1.5rem. </p>
+  </div>
+</body>
+
+</html>

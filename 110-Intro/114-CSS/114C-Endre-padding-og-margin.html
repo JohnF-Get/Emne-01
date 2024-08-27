@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Lær hvordan du endrer padding og margin i CSS, og forstå forskjellen mellom dem. Eksempler på hvordan du bruker ett, to, eller fire verdier for å sette padding og margin." />
+  <title>Endre padding og margin med CSS</title>
+  <link rel="stylesheet" href="../../styles/app-styles.css" />
+</head>
+
+<body>
+  <div class="card-container">
+    <h1>Endre padding og margin med CSS</h1>
+    <p> I denne tutorialen vil du lære hvordan du endrer padding og margin ved hjelp av CSS. Å forstå forskjellen mellom
+      padding og margin er viktig for å kontrollere avstanden og utseendet på elementene på en nettside. </p>
+    <h2>Forskjellen mellom padding og margin</h2>
+    <p>
+      <strong>Padding</strong> er avstanden mellom innholdet i et element og elementets kantlinje (border), mens
+      <strong>margin</strong> er avstanden mellom kanten på et element og nabo-elementene eller ytterkanten av
+      containeren det befinner seg i.
+    </p>
+    <h2>Sette padding og margin med én verdi</h2>
+    <p> Hvis du bruker én verdi, blir denne brukt for alle fire sidene (topp, høyre, bunn, venstre): </p>
+    <pre><code>div {
+    padding: 20px;
+    margin: 10px;
+}</code></pre>
+    <p> I dette eksemplet vil padding være 20px på alle fire sidene av <code>&lt;div&gt;</code>, og margin vil være 10px
+      på alle fire sidene. </p>
+    <h2>Sette padding og margin med to verdier</h2>
+    <p> Hvis du bruker to verdier, setter den første verdien padding/margin for topp og bunn, og den andre verdien for
+      høyre og venstre: </p>
+    <pre><code>div {
+    padding: 20px 10px;
+    margin: 10px 5px;
+}</code></pre>
+    <p> I dette eksemplet vil topp og bunn ha 20px padding, høyre og venstre 10px. Marginen vil være 10px topp og bunn,
+      og 5px høyre og venstre. </p>
+    <h2>Sette padding og margin med fire verdier</h2>
+    <p> Med fire verdier kan du spesifisere padding/margin for hver enkelt side i rekkefølgen: topp, høyre, bunn,
+      venstre: </p>
+    <pre><code>div {
+    padding: 20px 15px 10px 5px;
+    margin: 10px 8px 6px 4px;
+}</code></pre>
+    <p> I dette eksemplet er padding 20px på toppen, 15px på høyre side, 10px på bunnen, og 5px på venstre side.
+      Marginen er 10px topp, 8px høyre, 6px bunn, og 4px venstre. </p>
+  </div>
+</body>
+
+</html>

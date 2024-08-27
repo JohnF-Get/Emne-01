@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Try 04: Memory Game</title>
+    <style>
+      #board {
+        display: grid;
+        grid-template-columns: repeat(3, 200px);
+        grid-template-rows: repeat(2, 200px);
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      #board > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: darkgray url(images/backface.png);
+        width: 200px;
+        height: 200px;
+        font-size: 24px;
+        cursor: pointer;
+        border: 1px solid #333;
+      }
+
+      #restartButton {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="board">
+        <!-- Hvert kort er en div som kan klikkes for å avsløre sitt bilde -->
+        <div id="card1" onclick="revealHtmlLogo1()"></div>
+        <div id="card2" onclick="revealJsLogo1()"></div>
+        <div id="card3" onclick="revealCssLogo1()"></div>
+        <div id="card4" onclick="revealCssLogo2()"></div>
+        <div id="card5" onclick="revealHtmlLogo2()"></div>
+        <div id="card6" onclick="revealJsLogo2()"></div>
+      </div>
+      <!-- Knapp for å starte spillet på nytt -->
+      <button id="restartButton" onclick="revealNone()">Start på nytt</button>
+    </div>
+
+    <script>
+      // Variabel for å holde styr på hvilket kort som er avslørt først
+      // Denne variabelen brukes til å sjekke om to klikkede kort matcher
+      let revealedCard = null;
+
+      // Funksjon for å avsløre det første HTML-kortet
+      function revealHtmlLogo1() {
+        // Viser HTML-bildet i det første kortet (card1)
+        document.getElementById("card1").innerHTML = `<img src="images/logo--html.png" />`;
+
+        // Sjekker om et annet kort allerede er avslørt
+        if (revealedCard === null) {
+          // Hvis dette er det første kortet som blir avslørt, lagres det i `revealedCard`
+          revealedCard = "card1";
+        } else if (revealedCard === "card5") {
+          // Hvis det andre HTML-kortet allerede er avslørt, beholder vi begge synlige
+          revealedCard = null; // Tilbakestiller for neste runde
+        } else {
+          // Hvis det avslørte kortet ikke matcher (ikke card5), skjules begge kortene
+          setTimeout(function () {
+            document.getElementById("card1").innerHTML = "";
+            document.getElementById(revealedCard).innerHTML = "";
+            revealedCard = null; // Tilbakestiller for neste runde
+          }, 1000); // Skjuler kortene etter 1 sekund
+        }
+      }
+
+      // Funksjon for å avsløre det andre HTML-kortet
+      function revealHtmlLogo2() {
+        // Viser HTML-bildet i det andre kortet (card5)
+        document.getElementById("card5").innerHTML = `<img src="images/logo--html.png" />`;
+
+        // Sjekker om et annet kort allerede er avslørt
+        if (revealedCard === null) {
+          // Hvis dette er det første kortet som blir avslørt, lagres det i `revealedCard`
+          revealedCard = "card5";
+        } else if (revealedCard === "card1") {
+          // Hvis det første HTML-kortet allerede er avslørt, beholder vi begge synlige
+          revealedCard = null; // Tilbakestiller for neste runde
+        } else {
+          // Hvis det avslørte kortet ikke matcher (ikke card1), skjules begge kortene
+          setTimeout(function () {
+            document.getElementById("card5").innerHTML = "";
+            document.getElementById(revealedCard).innerHTML = "";
+            revealedCard = null; // Tilbakestiller for neste runde
+          }, 1000); // Skjuler kortene etter 1 sekund
+        }
+      }
+
+      // Funksjon for å avsløre det første CSS-kortet
+      function revealCssLogo1() {
+        // Viser CSS-bildet i det første kortet (card3)
+        document.getElementById("card3").innerHTML = `<img src="images/logo--css.png" />`;
+
+        // Sjekker om et annet kort allerede er avslørt
+        if (revealedCard === null) {
+          // Hvis dette er det første kortet som blir avslørt, lagres det i `revealedCard`
+          revealedCard = "card3";
+        } else if (revealedCard === "card4") {
+          // Hvis det andre CSS-kortet allerede er avslørt, beholder vi begge synlige
+          revealedCard = null; // Tilbakestiller for neste runde
+        } else {
+          // Hvis det avslørte kortet ikke matcher (ikke card4), skjules begge kortene
+          setTimeout(function () {
+            document.getElementById("card3").innerHTML = "";
+            document.getElementById(revealedCard).innerHTML = "";
+            revealedCard = null; // Tilbakestiller for neste runde
+          }, 1000); // Skjuler kortene etter 1 sekund
+        }
+      }
+
+      // Funksjon for å avsløre det andre CSS-kortet
+      function revealCssLogo2() {
+        // Viser CSS-bildet i det andre kortet (card4)
+        document.getElementById("card4").innerHTML = `<img src="images/logo--css.png" />`;
+
+        // Sjekker om et annet kort allerede er avslørt
+        if (revealedCard === null) {
+          // Hvis dette er det første kortet som blir avslørt, lagres det i `revealedCard`
+          revealedCard = "card4";
+        } else if (revealedCard === "card3") {
+          // Hvis det første CSS-kortet allerede er avslørt, beholder vi begge synlige
+          revealedCard = null; // Tilbakestiller for neste runde
+        } else {
+          // Hvis det avslørte kortet ikke matcher (ikke card3), skjules begge kortene
+          setTimeout(function () {
+            document.getElementById("card4").innerHTML = "";
+            document.getElementById(revealedCard).innerHTML = "";
+            revealedCard = null; // Tilbakestiller for neste runde
+          }, 1000); // Skjuler kortene etter 1 sekund
+        }
+      }
+
+      // Funksjon for å avsløre det første JavaScript-kortet
+      function revealJsLogo1() {
+        // Viser JavaScript-bildet i det første kortet (card2)
+        document.getElementById("card2").innerHTML = `<img src="images/logo--js.png" />`;
+
+        // Sjekker om et annet kort allerede er avslørt
+        if (revealedCard === null) {
+          // Hvis dette er det første kortet som blir avslørt, lagres det i `revealedCard`
+          revealedCard = "card2";
+        } else if (revealedCard === "card6") {
+          // Hvis det andre JavaScript-kortet allerede er avslørt, beholder vi begge synlige
+          revealedCard = null; // Tilbakestiller for neste runde
+        } else {
+          // Hvis det avslørte kortet ikke matcher (ikke card6), skjules begge kortene
+          setTimeout(function () {
+            document.getElementById("card2").innerHTML = "";
+            document.getElementById(revealedCard).innerHTML = "";
+            revealedCard = null; // Tilbakestiller for neste runde
+          }, 1000); // Skjuler kortene etter 1 sekund
+        }
+      }
+
+      // Funksjon for å avsløre det andre JavaScript-kortet
+      function revealJsLogo2() {
+        // Viser JavaScript-bildet i det andre kortet (card6)
+        document.getElementById("card6").innerHTML = `<img src="images/logo--js.png" />`;
+
+        // Sjekker om et annet kort allerede er avslørt
+        if (revealedCard === null) {
+          // Hvis dette er det første kortet som blir avslørt, lagres det i `revealedCard`
+          revealedCard = "card6";
+        } else if (revealedCard === "card2") {
+          // Hvis det første JavaScript-kortet allerede er avslørt, beholder vi begge synlige
+          revealedCard = null; // Tilbakestiller for neste runde
+        } else {
+          // Hvis det avslørte kortet ikke matcher (ikke card2), skjules begge kortene
+          setTimeout(function () {
+            document.getElementById("card6").innerHTML = "";
+            document.getElementById(revealedCard).innerHTML = "";
+            revealedCard = null; // Tilbakestiller for neste runde
+          }, 1000); // Skjuler kortene etter 1 sekund
+        }
+      }
+
+      // Funksjon for å skjule alle kortene og starte spillet på nytt
+      function revealNone() {
+        // Skjuler alle kortene ved å sette deres innerHTML til tomt
+        document.getElementById("card1").innerHTML = "";
+        document.getElementById("card2").innerHTML = "";
+        document.getElementById("card3").innerHTML = "";
+        document.getElementById("card4").innerHTML = "";
+        document.getElementById("card5").innerHTML = "";
+        document.getElementById("card6").innerHTML = "";
+
+        // Tilbakestiller variabelen `revealedCard` slik at spillet kan starte på nytt
+        revealedCard = null;
+      }
+    </script>
+  </body>
+</html>

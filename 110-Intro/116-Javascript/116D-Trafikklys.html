@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>v.1 Trafikklys</title>
+  <link rel="stylesheet" href="../../styles/app-styles.css" />
+  <style>
+    .traffic-light {
+      width: 80px;
+      background-color: black;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      padding: 10px 0;
+      margin: 20px auto;
+    }
+
+    .light {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: grey;
+      margin: 10px auto;
+    }
+
+    .light--red {
+      background-color: red;
+    }
+
+    .light--yellow {
+      background-color: yellow;
+    }
+
+    .light--green {
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card-container">
+    <h1>Trafikklys</h1>
+    <div id="trafficLight">
+      <div onclick="toRedYellow()" class="traffic-light">
+        <div id="redLight" class="light light--red"></div>
+        <div id="yellowLight" class="light"></div>
+        <div id="greenLight" class="light"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    "use strict";
+
+    function toRedYellow() {
+      document.getElementById("trafficLight").innerHTML = /* HTML */ `
+          <div onclick="toGreen()" class="traffic-light">
+            <div id="redLight" class="light light--red"></div>
+            <div id="yellowLight" class="light light--yellow"></div>
+            <div id="greenLight" class="light"></div>
+          </div>
+        `;
+    }
+
+    function toGreen() {
+      document.getElementById("trafficLight").innerHTML = /* HTML */ `
+          <div onclick="toYellow()" class="traffic-light">
+            <div id="redLight" class="light"></div>
+            <div id="yellowLight" class="light "></div>
+            <div id="greenLight" class="light light--green"></div>
+          </div>
+        `;
+    }
+
+    function toYellow() {
+      document.getElementById("trafficLight").innerHTML = /* HTML */ `
+          <div onclick="toRed()" class="traffic-light">
+            <div id="redLight" class="light"></div>
+            <div id="yellowLight" class="light light--yellow"></div>
+            <div id="greenLight" class="light"></div>
+          </div>
+        `;
+    }
+
+    function toRed() {
+      document.getElementById("trafficLight").innerHTML = /* HTML */ `
+          <div onclick="toRedYellow()" class="traffic-light">
+            <div id="redLight" class="light light--red"></div>
+            <div id="yellowLight" class="light"></div>
+            <div id="greenLight" class="light"></div>
+          </div>
+        `;
+    }
+  </script>
+</body>
+
+</html>

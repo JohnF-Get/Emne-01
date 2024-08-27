@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Data Table</title>
+    <link rel="stylesheet" href="../../styles/app-styles.css" />
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #a49ef1 !important;
+        }
+
+        th {
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<table id="weatherTable">
+    <tr>
+        <th>Day</th>
+        <th>Hour</th>
+        <th>Minute</th>
+        <th>Temperature</th>
+    </tr>
+</table>
+
+<script>
+    function addRow(day, hour, minute, temperature) {
+        // Get the table by its ID
+        const TABLE = document.getElementById('weatherTable');
+
+        // Create a new row
+        const ROW = `<tr>
+                        <td>${day}</td>
+                        <td>${hour}</td>
+                        <td>${minute}</td>
+                        <td>${temperature}</td>
+                     </tr>`;
+
+        // Add the new row to the table
+        TABLE.innerHTML += ROW;
+    }
+
+    // Adding rows to the table
+    addRow(1, 10, 0, 5);
+    addRow(1, 10, 15, 6);
+    addRow(1, 10, 30, 7);
+</script>
+
+</body>
+</html>

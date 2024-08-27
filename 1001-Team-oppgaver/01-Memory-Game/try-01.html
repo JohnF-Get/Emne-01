@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Try 01: Memory Game</title>
+    <style>
+      #board {
+        display: grid;
+        grid-template-columns: repeat(3, 200px);
+        grid-template-rows: repeat(2, 200px);
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      #board > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: darkgray url(images/backface.png);
+        width: 200px;
+        height: 200px;
+        font-size: 24px;
+        cursor: pointer;
+        border: 1px solid #333;
+      }
+
+      #restartButton {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="app">
+      <div id="board">
+        <div id="cardA" onclick="revealCardA()"></div>
+        <div id="cardB" onclick="revealCardB()"></div>
+        <div id="cardC" onclick="revealCardC()"></div>
+        <div id="cardD" onclick="revealCardD()"></div>
+        <div id="cardE" onclick="revealCardE()"></div>
+        <div id="cardF" onclick="revealCardF()"></div>
+      </div>
+      <button id="restartButton" onclick="restartGame()">Start på nytt</button>
+    </div>
+
+    <script>
+      function revealCardA() {
+        document.getElementById("cardA").innerHTML =  /* HTML */ `
+        <img src="images/logo--html.png" />
+        `;
+      }
+
+      function revealCardB() {
+        document.getElementById("cardB").innerHTML = /* HTML */ `
+        <img src="images/logo--css.png" />
+        `;
+      }
+
+      function revealCardC() {
+        document.getElementById("cardC").innerHTML = /* HTML */ `
+        <img src="images/logo--js.png" />
+        `;
+      }
+
+      function revealCardD() {
+        document.getElementById("cardD").innerHTML = /* HTML */ `
+        <img src="images/logo--html.png" />
+        `;
+      }
+
+      function revealCardE() {
+        document.getElementById("cardE").innerHTML = /* HTML */ `
+        <img src="images/logo--css.png" />
+        `;
+      }
+
+      function revealCardF() {
+        document.getElementById("cardF").innerHTML = /* HTML */ `
+        <img src="images/logo--js.png" />
+        `;
+      }
+
+      // Funksjon for å starte spillet på nytt
+      function restartGame() {
+        // Skjuler alle symbolene
+        document.getElementById("cardA").innerHTML = "";
+        document.getElementById("cardB").innerHTML = "";
+        document.getElementById("cardC").innerHTML = "";
+        document.getElementById("cardD").innerHTML = "";
+        document.getElementById("cardE").innerHTML = "";
+        document.getElementById("cardF").innerHTML = "";
+      }
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Enkel nettsideoppsett med header, venstremeny, hovedinnhold og footer, laget ved hjelp av CSS Grid." />
+  <title>Enkel Layout med CSS Grid</title>
+  <link rel="stylesheet" href="../../styles/app-styles.css" />
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "meny hovedinnhold"
+        "footer footer";
+      grid-template-columns: 1fr 3fr;
+      grid-template-rows: auto 1fr auto;
+      height: 100vh;
+    }
+
+    header {
+      grid-area: header;
+      background-color: lightgray;
+      padding: 1rem;
+      text-align: center;
+      font-family: "Montserrat", sans-serif;
+      font-size: 2.665rem;
+    }
+
+    nav {
+      grid-area: meny;
+      background-color: lightblue;
+      padding: 1rem;
+      font-family: "Literata", serif;
+    }
+
+    main {
+      grid-area: hovedinnhold;
+      background-color: lightgreen;
+      padding: 1rem;
+      font-family: "Literata", serif;
+      font-size: 1.5rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      grid-area: footer;
+      background-color: lightpink;
+      padding: 1rem;
+      text-align: center;
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.8rem;
+    }
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      font-family: "Source Code Pro", monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grid-container">
+    <header>
+      <h1>Header</h1>
+    </header>
+    <nav>
+      <p>Venstremeny</p>
+    </nav>
+    <main>
+      <p>Hovedinnhold</p>
+      <h2>Koden jeg brukte</h2>
+      <pre><code>
+&lt;header&gt;
+    &lt;h1&gt;Header&lt;/h1&gt;
+&lt;/header&gt;
+&lt;nav&gt;
+    &lt;p&gt;Venstremeny&lt;/p&gt;
+&lt;/nav&gt;
+&lt;main&gt;
+    &lt;p&gt;Hovedinnhold&lt;/p&gt;
+&lt;/main&gt;
+&lt;footer&gt;
+    &lt;p&gt;Footer&lt;/p&gt;
+&lt;/footer&gt;
+        </code></pre>
+      <h2>Hvorfor bruke semantiske elementer</h2>
+      <p> Jeg bruker semantiske elementer som <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
+        <code>&lt;main&gt;</code>, og <code>&lt;footer&gt;</code> fordi de gir mening om innholdets struktur både for
+        utviklere og for søkemotorer, og gjør innholdet mer tilgjengelig for hjelpemiddelteknologi. Dette gir bedre SEO
+        og bedre brukervennlighet. </p>
+    </main>
+    <footer>
+      <p>Footer</p>
+    </footer>
+  </div>
+</body>
+
+</html>
