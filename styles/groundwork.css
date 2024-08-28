@@ -21,7 +21,6 @@
  * ============================================================================
  */
 
-
 /******************************************************************************
  ROOT
 ******************************************************************************/
@@ -41,27 +40,27 @@
   @see https://www.musictheoryacademy.com/understanding-music/intervals/perfect-fourth/
   */
 
-  --fontM: 1.6rem; /* Base font-size */
+  --fontM: 1.5rem; /* Base font-size */
 
-  --fontL: 2.133rem;
-  --fontXl: 2.843rem;
-  --fontXxl: 3.79rem;
-  --fontXxxl: 5.052rem;
+  --fontL: 1.999rem;
+  --fontXl: 2.665rem;
+  --fontXxl: 3.553rem;
+  --fontXxxl: 4.736rem;
 
-  --fontS: 1.2rem;
-  --fontXs: 0.9rem;
-  --fontXxs: 0.676rem;
-  --fontXxxs: 0.507rem;
+  --fontS: 1.125rem;
+  --fontXs: 0.844rem;
+  --fontXxs: 0.633rem;
+  --fontXxxs: 0.475rem;
 
-  --sizeM: 1.6rem; /* Same as base font-size */
-  --sizeL: 2.4rem; /* Base font-size * 1.5 */
-  --sizeXl: 3.2rem; /* Base font-size * 2 */
-  --sizeXxl: 4.8rem; /* Base font-size * 3 */
-  --sizeXxl: 6.4rem; /* Base font-size * 4 */
+  --sizeM: 1.5rem; /* Same as base font-size */
+  --sizeL: 2.25rem; /* Base font-size * 1.5 */
+  --sizeXl: 3rem; /* Base font-size * 2 */
+  --sizeXxl: 4.5rem; /* Base font-size * 3 */
+  --sizeXxl: 6rem; /* Base font-size * 4 */
   --sizeS: 1rem; /* Base font-size / 1.5 */
-  --sizeXs: 0.8rem; /* Base font-size / 2 */
-  --sizeXxs: 0.533rem; /* Base font-size / 3 */
-  --sizeXxxs: 0.4rem; /* Base font-size / 4 */
+  --sizeXs: 0.75rem; /* Base font-size / 2 */
+  --sizeXxs: 0.5rem; /* Base font-size / 3 */
+  --sizeXxxs: 0.375rem; /* Base font-size / 4 */
 }
 
 /**
@@ -135,7 +134,7 @@ h3 {
 }
 
 h1 {
-  font-size: var(--fontXxxl);
+  font-size: var(--fontXxl);
   .block-page-title-block & {
     line-height: 1;
     margin: 0 0 var(--fontM) 0;
@@ -143,7 +142,7 @@ h1 {
 }
 
 h2 {
-  font-size: var(--fontXxl);
+  font-size: var(--fontXl);
   &.block__title {
     font-size: var(--fontL);
     margin: 0 0 var(--fontS) 0;
@@ -151,7 +150,7 @@ h2 {
 }
 
 h3 {
-  font-size: var(--fontXl);
+  font-size: var(--fontL);
 }
 
 h4,
@@ -380,6 +379,7 @@ img {
 
 svg {
   vertical-align: middle;
+  max-width: 100%;
 }
 
 svg:not(:root) {
@@ -418,8 +418,9 @@ legend,
 label {
   font-size: 1.6rem;
   font-weight: 700;
-  display: block;
+  display: inline-block;
   margin-top: 1.5rem;
+  margin-left: 0.5em;
 }
 
 legend {
@@ -438,12 +439,14 @@ textarea {
   font-family: inherit; /* 1 */
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
+  margin: 0;
 }
 
 input,
 button {
   overflow: visible;
+  line-height: 1.8;
+  margin: 0 0 1em;
 }
 
 input[type="email"],
@@ -496,6 +499,7 @@ Remove the inner padding in Chrome and Safari on macOS.
 
 [type="checkbox"],
 [type="radio"] {
+  margin: 0 0.5em;
   padding: 0;
   display: inline;
 }

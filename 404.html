@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Siden finnes ikke</title>
+  <link rel="stylesheet" href="styles/groundwork.css">
+  <link rel="stylesheet" href="styles/app-styles.css">
+  <style>
+    .card-container {
+      text-align: center;
+    }
+
+    .error-image {
+      max-width: 300px;
+      margin: 20px auto;
+    }
+
+    .error-description {
+      font-family: var(--fontSerif);
+      font-size: var(--fontM);
+      margin-bottom: 2em;
+    }
+
+    .back-home {
+      font-family: var(--fontSans);
+      font-size: var(--fontM);
+      background-color: rgb(0, 155, 13);
+      color: #fff;
+      padding: 10px 20px;
+      margin-top: 2em;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-home:hover {
+      background-color: rgb(0, 94, 16);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card-container">
+    <h1>404 - Ojsann!</h1>
+    <img src="images/troll.webp" alt="Norsk troll" class="error-image">
+    <p class="error-description">Det ser ut som om du har gått deg vill i de norske fjellene. Siden du leter etter er
+      ikke her!</p>
+    <a href="/" class="back-home">Ta meg tilbake til trygg grunn</a>
+  </div>
+</body>
+
+</html>

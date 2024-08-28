@@ -1,6 +1,7 @@
 # Dev files and scratches
 .zzdev/
 *.bak
+sandkassa
 
 # Index Page Generator
 /ipg*

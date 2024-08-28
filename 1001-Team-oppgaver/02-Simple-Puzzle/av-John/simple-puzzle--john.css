@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+#app {
+  display: grid;
+  grid-template-columns: 32em auto;
+  grid-template-rows: auto 8em;
+  height: 95vh;
+  grid-template-areas: "board text" " buttons buttons";
+  font-family: "Literata", serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+#board {
+  width: 30em;
+  height: 30em;
+  background-color: lightblue;
+  grid-area: board;
+}
+#board > div {
+  position: absolute;
+}
+
+#boardInstructions {
+  grid-area: text;
+  padding: 0 3em 0 1em;
+}
+
+#buttons {
+  display: flex;
+}
+#buttons > div {
+  margin: 1em;
+}
+.jigsaw1,
+.jigsaw2 {
+  width: 6em;
+  height: 6em;
+  position: relative;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.jigsaw1,
+.jigsaw1 span {
+  background-color: #0284cf;
+}
+
+.jigsaw2,
+.jigsaw2 span {
+  background-color: #00008b;
+}
+
+.jigsaw1 .t,
+.jigsaw2 .t {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  top: -1.5em;
+  left: 2em;
+  -webkit-border-radius: 4em;
+  -moz-border-radius: 4em;
+  border-radius: 4em;
+}
+
+.jigsaw1 .r,
+.jigsaw2 .r {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  top: 2em;
+  left: 5.5em;
+  -webkit-border-radius: 4em;
+  -moz-border-radius: 4em;
+  border-radius: 4em;
+}
+
+.jigsaw1 .b,
+.jigsaw2 .b {
+  width: 1.8em;
+  height: 1.8em;
+  position: absolute;
+  top: 4.5em;
+  left: 2.2em;
+  -webkit-border-radius: 4em;
+  -moz-border-radius: 4em;
+  border-radius: 4em;
+  background-color: lightblue;
+}
+
+.jigsaw1 .l,
+.jigsaw2 .l {
+  width: 1.8em;
+  height: 1.8em;
+  position: absolute;
+  top: 2.2em;
+  left: -0.4em;
+  -webkit-border-radius: 4em;
+  -moz-border-radius: 4em;
+  border-radius: 4em;
+  background-color: lightblue;
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 26.67px;
+  margin: 0.5em 0;
+}

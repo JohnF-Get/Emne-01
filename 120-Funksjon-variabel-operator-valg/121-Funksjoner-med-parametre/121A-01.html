@@ -1,50 +1,44 @@
 <!DOCTYPE html>
 <html lang="no">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>121A-01</title>
-    <link rel="stylesheet" href="../../styles/app-styles.css" />
-    <style>
-      body {
-        padding: 2em;
-      }
-      button {
-        margin-bottom: 1em;
-      }
-    </style>
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>121A-01</title>
+  <link rel="stylesheet" href="../../styles/groundwork.css" />
+  <link rel="stylesheet" href="../../styles/app-styles.css" />
+  <style>
+    body {
+      padding: 2em;
+    }
+
+    button {
+      margin-bottom: 1em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card-container">
     <div>
       <button id="addCircleAt30">Add Circle at x=30</button>
       <button id="addCircleAt70">Add Circle at x=70</button>
     </div>
-
-    <svg
-      id="mySvg"
-      width="800"
-      height="600"
-      style="background-color: lightgray"
-    ></svg>
-
-    <script>
-      function addCircle(x) {
-        document.getElementById("mySvg").innerHTML = /*HTML*/ `
+    <svg id="mySvg" width="800" height="600" style="background-color: lightgray"></svg>
+  </div>
+  <script>
+    function addCircle(x) {
+      document.getElementById("mySvg").innerHTML = /*HTML*/ `
           <circle cx="${x}" cy="100" r="40" stroke="green" stroke-width="4" fill="yellow" />            
       `;
-      }
+    }
+    document.getElementById("addCircleAt30").addEventListener("click", function () {
+      addCircle(30);
+    });
+    document.getElementById("addCircleAt70").addEventListener("click", function () {
+      addCircle(70);
+    });
+  </script>
+</body>
 
-      document
-        .getElementById("addCircleAt30")
-        .addEventListener("click", function () {
-          addCircle(30);
-        });
-
-      document
-        .getElementById("addCircleAt70")
-        .addEventListener("click", function () {
-          addCircle(70);
-        });
-    </script>
-  </body>
 </html>

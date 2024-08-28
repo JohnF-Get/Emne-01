@@ -1,10 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="no">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/groundwork.css" />
+    <link rel="stylesheet" href="../../styles/app-styles.css" />
     <style>
         #board {
             display: grid;
@@ -23,12 +24,11 @@
 </head>
 
 <body>
-    <div id="board">
+    <div id="board" class="card-container">
     </div>
     <script>
         let selectedSquareIndex = 7;
         const size = 64;
-
         showBoard();
 
         function showBoard() {
@@ -37,17 +37,14 @@
             const pattern = '<div></div>';
             const part1 = ''.padEnd(pattern.length * lengthPart1, pattern)
             document.getElementById('board').innerHTML = part1;
-
             // del 2: den valgte ruten
             const part2 = '<div class="selected"></div>';
             document.getElementById('board').innerHTML += part2;
-
             // del 3  alle rutene som ikke er valgt etter den valgte
             const lengthPart3 = size - (selectedSquareIndex + 1);
             const part3 = ''.padEnd(pattern.length * lengthPart3, pattern)
             document.getElementById('board').innerHTML += part3;
         }
-
     </script>
 </body>
 
