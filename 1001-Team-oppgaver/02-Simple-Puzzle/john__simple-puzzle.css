@@ -11,25 +11,27 @@
   line-height: 1.5;
 }
 
-#board {
+#puzzleBoard {
   width: 30em;
   height: 30em;
   background-color: lightblue;
   grid-area: board;
 }
-#board > div {
+#puzzleBoard > div {
   position: absolute;
 }
 
-#boardInstructions {
+#puzzleInstructions {
   grid-area: text;
   padding: 0 3em 0 1em;
 }
 
-#buttons {
+#puzzlePieceButtons {
   display: flex;
+  background-color: lightblue; 
+  grid-area: buttons;
 }
-#buttons > div {
+#puzzlePieceButtons > div {
   margin: 1em;
 }
 .jigsaw1,
