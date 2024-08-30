@@ -1,183 +1,51 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="nb">
 
-<head>
+<head> 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="description" content="🧩 Hjernetrim Bonanza: Plasser puslebrikker på brettet i henhold til bestemte regler. Velg mellom forskjellige typer brikker og løs puslespillet ved å fylle brettet uten å bryte reglene. Et morsomt og utfordrende hjernetrimspill for alle aldre!">
+    <title>Hjernetrim Bonanza Puslespill</title>
     <link rel="stylesheet" href="team__simple-puzzle.css" />
 </head>
 
 <body>
-    <div style="
-        display: grid;
-        grid-template-columns: 32em auto;
-        grid-template-rows: auto 8em;
-        height: 95vh;
-        grid-template-areas: 'board text' ' buttons buttons';
-      ">
-        <div id="board" style="grid-area: board"></div>
-        <div id="exerciseText" style="overflow-y: scroll; height: 32em; grid-area: text"></div>
-        <div id="buttons" style="background-color: lightblue; grid-area: buttons"></div>
-    </div>
-    <script>
-        // addPuzzlePiece('board', false, false, true, true, '', 1, 24, 0);
-        // addPuzzlePiece('board', false, true, true, true, '', 2, 18, 0);
-        // addPuzzlePiece('board', false, true, true, true, '', 1, 12, 0);
-        // addPuzzlePiece('board', false, true, true, true, '', 2, 6, 0);
-        // addPuzzlePiece('board', true, false, true, true, '', 2, 24, 6);
-        // my code for button
-        addPuzzlePiece("buttons", false, false, true, true, "addPuzzlePieceWithoutTopAndRightToBoard()", 1);
-        addPuzzlePiece("buttons", false, true, true, true, "addPuzzlePieceWithoutTopToBoard()", 2);
-        addPuzzlePiece("buttons", true, true, true, true, "addNormalPuzzlePieceToBoard()", 1);
-        addPuzzlePiece("buttons", true, false, true, true, "addPuzzlePieceWithoutRightToBoard()", 2);
-        addPuzzlePiece("buttons", false, true, true, false, "addPuzzlePieceWithoutTopAndLeftToBoard()", 1);
-        addPuzzlePiece("buttons", true, true, true, false, "addPuzzlePieceWithoutLeftToBoard()", 2);
-        addPuzzlePiece("buttons", true, false, false, true, "addPuzzlePieceWithoutRightAndBottomToBoard()", 1);
-        addPuzzlePiece("buttons", true, true, false, true, "addPuzzlePieceWithoutBottomToBoard()", 2);
-        addPuzzlePiece("buttons", true, true, false, false, "addPuzzlePieceWithoutLeftAndBottomToBoard()", 1);
-        
-        
-        let vertical = 0;
-        let horizontal = 24;
-        let color = 1
-
-        function addPuzzlePieceWithoutTopAndRightToBoard() {
-            addPuzzlePiece("board", false, false, true, true, '', color, horizontal, vertical);
-            horizontal -= 6;
-            if (horizontal < 0) {
-                horizontal = 24;
-                vertical += 6;
-            }
-            if (color == 1) {
-                color = 2;
-            } else {
-                color = 1;
-            }
-        }
-
-        function addPuzzlePieceWithoutTopToBoard() {
-            addPuzzlePiece('board', false, true, true, true, '', color, horizontal, vertical);
-            horizontal -= 6;
-            if (horizontal < 0) {
-                horizontal = 24;
-                vertical += 6;
-            }
-            if (color == 1) {
-                color = 2;
-            } else {
-                color = 1;
-            }
-        }
-
-        function addNormalPuzzlePieceToBoard() {
-            addPuzzlePiece('board', true, true, true, true, '', 1, 18, 6)
-        }
-
-        function addPuzzlePieceWithoutRightToBoard() {
-            addPuzzlePiece('board', true, false, true, true, '', 2, 24, 6);
-        }
-
-        function addPuzzlePieceWithoutTopAndLeftToBoard() {
-            addPuzzlePiece('board', false, true, true, false, '', 1, 0, 0);
-        }
-
-        function addPuzzlePieceWithoutLeftToBoard() {
-            addPuzzlePiece('board', true, true, true, false, '', 2, 0, 6)
-        }
-
-        function addPuzzlePieceWithoutRightAndBottomToBoard() {
-            addPuzzlePiece('board', true, false, false, true, '', 1, 24, 24);
-        }
-
-        function addPuzzlePieceWithoutBottomToBoard() {
-            addPuzzlePiece('board', true, true, false, true, '', 2, 18, 24);
-        }
-
-        function addPuzzlePieceWithoutLeftAndBottomToBoard() {
-            addPuzzlePiece('board', true, true, false, false, '', 1, 0, 24);
-        }
-
-        function addPuzzlePiece(toId, hasTop, hasRight, hasBottom, hasLeft, onclick, color, leftPosition, topPosition) {
-            let style = "";
-            if (leftPosition !== undefined) {
-                style = `left: ${leftPosition + 0.5}em; top: ${topPosition + 0.5}em`;
-            }
-            document.getElementById(toId).innerHTML += /*HTML*/ `
-                <div class="jigsaw${color}" onclick="${onclick}" style="${style}">
-                    ${hasTop ? `<span class="t"></span>` : ""}
-                    ${hasRight ? `<span class="r"></span>` : ""}
-                    ${hasBottom ? `<span class="b"></span>` : ""}
-                    ${hasLeft ? `<span class="l"></span>` : ""}
-                </div>            
-            `;
-        }
-        document.getElementById("exerciseText").innerHTML = /*HTML*/ `            
-                <h2>Oppgaver</h2>
-                <ol>
-                    <li>Studer koden og prøv å forstå mest mulig av hva som foregår. CSS er ikke viktig, men på
-                        <tt>board</tt> brukes <tt>position: absolute</tt>
-                        for å kunne legge brikkene delvis oppå hverandre, og dette har vi ikke brukt i kurset før.
-                        (Det er noe man bør unngå å bruke.) Brikkene har jeg stjålet herfra: <a target="_new" href="https://codepen.io/ProfessorSamoff/pen/ByJoaE">codepen.io/ProfessorSamoff/pen/ByJoaE</a>
-                        Jeg har ikke studert i detalj hvordan de er bygget, og det trenger ikke dere gjøre heller.                         
-                        <br/>&nbsp;
-                    </li>
-                    <li>Så skal vi i gang å endre på dette. Dere må på ingen måte forstå alt som foregår for å gjøre disse
-                        oppgavene. Sånn er det i bedrift også;
-                        du går inn og gjør endring på en liten del av koden uten å forstå alt rundt. 
-                        <b>Hvert team må vurdere hvor mye eller lite av denne oppgaven dere vil gjøre</b>. Alle bør gjøre litt, men 
-                        det kan være at de siste oppgavene er riktige å hoppe over for noen team.
-                        <br/>&nbsp;
+    <div id="app">
+        <div id="puzzleBoard"></div>
+        <div id="puzzleInstructions">
+            <h1>🧩 Hjernetrim Bonanza 🧩</h1>
+            <h2>🎯 Slik spiller du :</h2>
+            <ol>
+                <li><strong>Målet med spillet</strong>: Formålet med dette puslespillet er å plassere puslebrikker på
+                    brettet i henhold til bestemte regler, slik at alle brikkene passer sammen og fyller brettet uten å
+                    bryte reglene.</li>
+                <li><strong>Brettoppsett</strong>: Spillet har et rutenettbrett som vises i det blå området til venstre
+                    på skjermen. Nederst finnes de forskjellige typer puslebrikker du kan velge mellom.</li>
+                <li><strong>Velg puslebrikker</strong>: Klikk på de ulike knappene for å velge hvilken type puslebrikke
+                    du vil plassere på brettet. Hver knapp representerer en unik puslebrikkeform, noen med manglende
+                    sider (topp, høyre, bunn, venstre), som må plasseres på riktig sted.</li>
+                <li><strong>Regler for plassering av brikker</strong>: <ul>
+                        <li>En brikke kan ikke plasseres på toppen av brettet hvis den har en "topp" (øverste kant).
                         </li>
-                    <li>
-                        Hvis man trykker på den første brikken nederst til venstre på siden, kalles funksjonen
-                        <tt>addNormalPuzzlePieceToBoard()</tt>. (Ev. høyreklikk på denne brikken i nettleseren og velg inspiser. Da vil du 
-                        se HTML-koden som ligger bak.)
-                        Lag funksjonen <tt>addNormalPuzzlePieceToBoard()</tt>, slik at brikken legges til på brettet. 
-                        Kommenter ut linjene som begynner med <tt>addPuzzlePiece('board'...</tt> - de var bare ment for å vise eksempler på hvordan man kan legge til ulike brikker i 
-                        ulike posisjoner på brettet. Men eksperimenter med dem for å forstå hvordan de ulike verdiene man kan sende inn som argument påvirker sluttresultatet<br/>
-                        For at skjøtene mellom brikkene skal virke, må vi tegne opp dette fra øverst til høyre, så mot venstre - og så starte på neste linje helt til høyre. 
-                        &nbsp;<br/>
-                    </li>
-                    <li>
-                        Utvid funksjonen slik at første gang den kalles legges det til en brikke med 24 som argument for både <tt>leftPosition</tt> og  0 for <tt>topPosition</tt>.<br/>&nbsp;
-                        Og at for hver gang den kalles så brukes det 6 mindre enn forrige gang for <tt>leftPosition</tt>. (Første gang 24, så 18, så 12, så 6 og så 0.)
-                    </li>
-                    <li>
-                        Utvid funksjonen slik at hvis man har kalt funksjonen fem ganger så bruker den igjen 24 for <tt>leftPosition</tt> og bruker 6 mer enn forrige gang for <tt>topPosition</tt>.
-                        <br/>&nbsp;
-                    </li>
-                    <li>
-                        Sørg for at det annenhver gang blir farge 1 og annenhver gang farge 2.<br/>&nbsp;
-                    </li>
-                    <li>
-                        Lag ferdig knapperaden slik at det er knapper for alle disse alternativene: 
-                        <ul>
-                            <li><del>Normal brikke</del></li>
-                            <li>Slett toppkant - ellers normal</li>
-                            <li>Slett høyrekant - ellers normal</li>
-                            <li>Slett bunnkant - ellers normal</li>
-                            <li>Slett venstrekant - ellers normal</li>
-                            <li>Slett hjørne i topp og mot venstre - ellers normal</li>
-                            <li>Slett hjørne i topp og mot høyre - ellers normal</li>
-                            <li>Slett hjørne i bunn og mot venstre - ellers normal</li>
-                            <li>Slett hjørne i bunn og mot høyre - ellers normal</li>
-                        </ul>
-                        Sørg for at alle knappene virker og legger til riktig type brikke. <br/>&nbsp;
-                    </li>
-                    <li>
-                        Implementer følgende regler:
-                        <ul>
-                            <li>På første rad kan man bare legge til brikker som har slett topp</li>
-                            <li>På siste rad kan man bare legge til brikker som har slett bunn</li>
-                            <li>I første kolonne kan man bare legge til brikker som har slett venstrekant</li>
-                            <li>I siste kolonne kan man bare legge til brikker som har slett høyrekant</li>
-                        </ul>
-                    </li>
-
-                </ol>
-            `;
-    </script>
+                        <li>En brikke kan ikke plasseres på bunnen av brettet hvis den har en "bunn" (nederste kant).
+                        </li>
+                        <li>En brikke kan ikke plasseres helt til venstre hvis den har en "venstre" side.</li>
+                        <li>En brikke kan ikke plasseres helt til høyre hvis den har en "høyre" side.</li>
+                    </ul>
+                </li>
+                <li><strong>Fargene byttes på brikkene</strong>: Fargen på brikkene skifter hver gang du legger til en
+                    ny brikke på brettet. Dette gir et variert og fargerikt utseende når brettet er ferdig utfylt.</li>
+                <li><strong>Fullføre puslespillet</strong>: Når du har plassert totalt 25 brikker på brettet (5x5
+                    rutenett), er brettet fullt, og spillet er over. Hvis du forsøker å legge til flere brikker, vil du
+                    få en melding om at brettet er fullt.</li>
+                <li><strong>Feilmeldinger og tips</strong>: Hvis du forsøker å plassere en brikke som bryter reglene
+                    (for eksempel en brikke med en topp på den øverste raden), vil du motta en advarsel som forklarer
+                    hvorfor dette ikke er tillatt og gir deg et hint om hvordan du kan plassere brikken riktig.</li>
+            </ol>
+        </div>
+        <div id="puzzlePieceButtons"></div>
+    </div>
+    <script type="text/javascript" src="team__simple-puzzle.js"></script>
 </body>
 
 </html>

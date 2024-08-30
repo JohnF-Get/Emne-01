@@ -1,17 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nb">
 
-<head>
+<head> 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="description" content="🧩 Hjernetrim Bonanza: Plasser puslebrikker på brettet i henhold til bestemte regler. Velg mellom forskjellige typer brikker og løs puslespillet ved å fylle brettet uten å bryte reglene. Et morsomt og utfordrende hjernetrimspill for alle aldre!">
+    <title>Hjernetrim Bonanza Puslespill</title>
     <link rel="stylesheet" href="john__simple-puzzle.css" />
 </head>
 
 <body>
     <div id="app">
         <div id="puzzleBoard"></div>
-        <div id="puzzleInstructions"></div>
+        <div id="puzzleInstructions">
+            <h1>🧩 Hjernetrim Bonanza 🧩</h1>
+            <h2>🎯 Slik spiller du :</h2>
+            <ol>
+                <li><strong>Målet med spillet</strong>: Formålet med dette puslespillet er å plassere puslebrikker på
+                    brettet i henhold til bestemte regler, slik at alle brikkene passer sammen og fyller brettet uten å
+                    bryte reglene.</li>
+                <li><strong>Brettoppsett</strong>: Spillet har et rutenettbrett som vises i det blå området til venstre
+                    på skjermen. Nederst finnes de forskjellige typer puslebrikker du kan velge mellom.</li>
+                <li><strong>Velg puslebrikker</strong>: Klikk på de ulike knappene for å velge hvilken type puslebrikke
+                    du vil plassere på brettet. Hver knapp representerer en unik puslebrikkeform, noen med manglende
+                    sider (topp, høyre, bunn, venstre), som må plasseres på riktig sted.</li>
+                <li><strong>Regler for plassering av brikker</strong>: <ul>
+                        <li>En brikke kan ikke plasseres på toppen av brettet hvis den har en "topp" (øverste kant).
+                        </li>
+                        <li>En brikke kan ikke plasseres på bunnen av brettet hvis den har en "bunn" (nederste kant).
+                        </li>
+                        <li>En brikke kan ikke plasseres helt til venstre hvis den har en "venstre" side.</li>
+                        <li>En brikke kan ikke plasseres helt til høyre hvis den har en "høyre" side.</li>
+                    </ul>
+                </li>
+                <li><strong>Fargene byttes på brikkene</strong>: Fargen på brikkene skifter hver gang du legger til en
+                    ny brikke på brettet. Dette gir et variert og fargerikt utseende når brettet er ferdig utfylt.</li>
+                <li><strong>Fullføre puslespillet</strong>: Når du har plassert totalt 25 brikker på brettet (5x5
+                    rutenett), er brettet fullt, og spillet er over. Hvis du forsøker å legge til flere brikker, vil du
+                    få en melding om at brettet er fullt.</li>
+                <li><strong>Feilmeldinger og tips</strong>: Hvis du forsøker å plassere en brikke som bryter reglene
+                    (for eksempel en brikke med en topp på den øverste raden), vil du motta en advarsel som forklarer
+                    hvorfor dette ikke er tillatt og gir deg et hint om hvordan du kan plassere brikken riktig.</li>
+            </ol>
+        </div>
         <div id="puzzlePieceButtons"></div>
     </div>
     <script type="text/javascript" src="john__simple-puzzle.js"></script>

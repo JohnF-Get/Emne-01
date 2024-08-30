@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="nb">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tekst i ordrelinje</title>
+  <link rel="stylesheet" href="../../styles/groundwork.css">
+  <link rel="stylesheet" href="../../styles/app-styles.css">
+</head>
+
+<body>
+  <div class="card-container">
+    <h1>Oppgave 124A</h1>
+    <p id="orderLine"></p>
+  </div>
+  <script>
+    /**
+     * Creates an order line string for an item.
+     * 
+     * @param {string} itemName - The name of the item.
+     * @param {number} itemPrice - The price of a single item.
+     * @param {number} itemQuantity - The quantity of the item.
+     * @returns {string} A string representing the order line with item details and total price.
+     */
+    function createOrderLine(itemName, itemPrice, itemQuantity) {
+      let itemTotalPrice = itemQuantity * itemPrice;
+      let orderItemText = itemQuantity + ' stk. ' + itemName + ' a ' + itemPrice + ' kr = ' + itemTotalPrice + ' kr.';
+      return orderItemText;
+    }
+
+    // Calling the function and storing the result
+    let result = createOrderLine('Tastatur', 129, 3);
+    
+    // Logging the result to the console
+    console.log(result);
+    
+    // Displaying the result in the HTML element with the ID 'orderLine'
+    document.getElementById('orderLine').innerHTML = result;
+</script>
+
+</body>
+
+</html>

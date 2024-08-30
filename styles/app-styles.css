@@ -39,6 +39,10 @@ h3 {
   color: rgb(0, 155, 13);
 }
 
+h1 {
+  margin-bottom: var(--sizeXl);
+}
+
 h3 {
   color: rgb(0, 94, 16);
 }
