@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../styles/groundwork.css" />
+    <link rel="stylesheet" href="../../styles/app-styles.css" />
+    <title>141A.Jukseknapp</title>
+    <style>
+      button {
+        margin-top: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card-container">
+      <div id="displayPoints"></div>
+      <button id="cheatButton">Juks</button>
+    </div>
+
+    <script>
+      // Model: Holds the data (M)
+      let points = 10; // Initial points value
+      let pointsPerClick = 1; // Initial points per click value
+
+      // View: Updates the display on the webpage (V)
+      function updateView() {
+          document.getElementById('displayPoints').innerHTML = `
+              <div>Poeng: ${points}</div>
+              <div>Poeng per Klikk: ${pointsPerClick}</div>
+          `;
+      }
+
+      // Controller: Manages the logic and interactions (C)
+      function cheat() {
+          // Update the model by multiplying values by 10 (M)
+          points *= 10;
+          pointsPerClick *= 10;
+
+          // Update the view with new values (V)
+          updateView();
+      }
+
+      // Initialize the view with initial values (C initializes V)
+      updateView();
+
+      // Add the click event listener to the cheat button to trigger the cheat function (C)
+      // Note to self: Get used to using addEventListener('click', functionName)
+      // instead of onclick in html.
+      document.getElementById('cheatButton').addEventListener('click', cheat);
+  </script>
+  </body>
+</html>

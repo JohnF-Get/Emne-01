@@ -33,7 +33,7 @@ function changePositionAndColor() {
     verticalPosition += 6;
   }
   color = (color === 1) ? 2 : 1;
-  
+
 }
 
 /**
