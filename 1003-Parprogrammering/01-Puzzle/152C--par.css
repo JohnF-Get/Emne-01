@@ -1,19 +1,53 @@
-#puzzle {
+/* Using BEM (Block, Element, Modifier)
+ * methodology for class naming.
+ * @see https://getbem.com/ */
+
+ #puzzle {
   display: grid;
   grid-template-columns: repeat(3, 100px);
-  grid-gap: 5px;
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 320px;
 }
+
 .puzzle__tile {
-  width: 100px;
-  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  background-color: #f0f0f0;
+  border: 2px solid #ddd;
   font-size: 24px;
+  font-weight: bold;
+  color: #333;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
+
+.puzzle__tile:hover {
+  background-color: #e0e0e0;
+}
+
 .puzzle__tile--blank {
-  background-color: lightgrey;
+  background-color: #ffffff;
+  border: 2px dashed #ccc;
   cursor: default;
+}
+
+#startAgainButton {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#startAgainButton:hover {
+  background-color: #45a049;
 }
