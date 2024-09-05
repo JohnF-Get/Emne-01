@@ -15,7 +15,16 @@
  * @description Represents the current state of the puzzle. The array contains
  * numbers from 1 to 8 and a null value representing the blank tile.
  */
-let numbers = [1, 2, 5, 7, null, 3, 4, 8, 6];
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, null];
+
+/**
+ * @function shuffleArray
+ * @param {Array} array - The array to shuffle.
+ * @description Shuffles the array using a simple sort with random comparison.
+ */
+function shuffleArray(array) {
+    array.sort(() => Math.random() - 0.5);
+}
 
 /******************************************************************************
  * VIEW
@@ -84,5 +93,18 @@ function areNeighbours(index1, index2) {
     return (row1 === row2 && Math.abs(col1 - col2) === 1) || (col1 === col2 && Math.abs(row1 - row2) === 1);
 }
 
-// Initialize the puzzle view
+/**
+ * @function startAgain
+ * @description Shuffles the puzzle array and updates the view to restart the puzzle.
+ */
+function startAgain() {
+    shuffleArray(numbers);
+    updateView();
+}
+
+// Shuffle numbers and initialize the puzzle view
+shuffleArray(numbers);
 updateView();
+
+// Add event listener to the "Start Again" button
+document.getElementById('startAgainButton').addEventListener('click', startAgain);
