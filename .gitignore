@@ -3,9 +3,6 @@
 *.bak
 sandkassa/
 
-# Index Page Generator
-/ipg*
-
 # Visual Studio Code specific
 .vscode/*
 !.vscode/settings.json
