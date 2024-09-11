@@ -17,7 +17,7 @@ function buyCoke() {
   updateView();
 }
 
-//trenger å ghøre
+//trenger å gjøre
 function takeCoke() {
   
   updateView();
@@ -67,11 +67,21 @@ function valueInMachine(coinsInMachine) {
 }
 
 function giveChange(change) {
-    const coinsType = [1, 5, 10, 20];
-    //let changeAmount = change;
-    // vi må bruke changeAmout med coinsType og coinsInMachine
-  for (let i = 0; i < coinsType.length; i++ ) {
-      // coinsType = coinsType[i];
+    const coinsType = [20, 10, 5, 1];
+    let changeAmount = change;
+    // 
+  for (let i = 0; i < coinsType.length; i++) {
+    let coin = coinsType[i]; 
+    if (changeAmount >= coin) {
+      changeAmount -= coin;
+      console.log(`Reduced amount by ${coin}. Remaining: ${changeAmount}`);
+    }
+
+    
+    // let count = changeAmount / coin
+
+
+   
   }
 }
 

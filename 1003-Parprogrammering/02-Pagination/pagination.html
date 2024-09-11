@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script>
+      // model
+
+      let myList = [
+        10, 12, 50, 41, 13, 20, 20, 15, 14, 70, 39, 9, 54, 78, 15, 4, 3, 18, 49,
+        50, 12, 50, 41, 13, 20, 20, 15, 14, 70, 39, 9, 54, 78, 15, 4, 3, 18, 49,
+        50, 4, 3, 18, 49, 50, 12, 50, 41, 13, 20, 20, 15, 14, 70, 39,
+      ];
+      let myUserList = myList;
+      let html = ``;
+      let count = 0;
+      // view
+
+      updateView();
+      function updateView() {
+        let myFirstList = '';
+        for (let i = count; i < count + 10; i++) {
+          myFirstList += /* HTML */ ` <li>${myUserList[i]}</li> `;
+        }
+
+        document.getElementById('app').innerHTML =
+          html +
+          myFirstList +
+          `
+            <button onclick="nextNumbers()">Neste 10 tall</button><br/>
+            <button onclick="filterByOddNumber()">fjern partall</button><br/>
+            <button onclick="filterByEvenNumber()">fjern oddetall</button><br>
+            <button onclick="showAll()">Alle tall</button>
+            `;
+      }
+
+      // controller
+
+      function nextNumbers() {
+        count += 10;
+        updateView();
+      }
+
+      function filterByOddNumber() {
+        myUserList = myList.filter((number) => number % 2 !== 0);
+        updateView();
+      }
+      function filterByEvenNumber() {
+        myUserList = myList.filter((number) => number % 2 == 0);
+        updateView();
+      }
+      function showAll() {
+        myUserList = myList;
+        updateView();
+      }
+    </script>
+  </body>
+</html>
